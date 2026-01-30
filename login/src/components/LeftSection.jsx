@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LeftSection: React.FC = () => {
+const LeftSection = () => {
   return (
     <div className="hidden lg:flex relative w-full lg:w-1/2 h-full bg-[#EAEBF3] overflow-hidden flex-col items-center justify-center shrink-0">
       {/* Background Shapes */}

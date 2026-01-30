@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 
-interface LoginFormProps {
-  showPassword: boolean;
-  setShowPassword: (show: boolean) => void;
-}
-
-const LoginForm: React.FC<LoginFormProps> = ({ showPassword, setShowPassword }) => {
+const LoginForm = ({ showPassword, setShowPassword }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     keepLoggedIn: false,
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     const { id, type, checked, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -21,7 +16,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ showPassword, setShowPassword }) 
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Handle login logic here

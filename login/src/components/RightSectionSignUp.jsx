@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import LoginForm from './LoginForm';
+import SignUpForm from './SignUpForm.jsx';
 
-interface RightSectionProps {
-  onNavigateToSignUp?: () => void;
-}
-
-const RightSection: React.FC<RightSectionProps> = ({ onNavigateToSignUp }) => {
+const RightSectionSignUp = ({ onNavigateToLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="w-full lg:w-1/2 h-full flex flex-col items-center justify-center p-6 sm:p-8 lg:p-24 overflow-y-auto bg-white">
-      <div className="w-full max-w-sm flex flex-col gap-6 sm:gap-8">
-        {/* Mobile Logo - Only visible on small screens */}
-        <div className="flex lg:hidden justify-center mb-4">
+    <div className="w-full lg:w-1/2 h-full flex flex-col items-center justify-start lg:justify-center p-6 sm:p-8 lg:p-24 overflow-y-auto bg-white">
+      <div className="w-full max-w-sm flex flex-col gap-6 sm:gap-8 pt-8 lg:pt-0">
+        {/* Mobile Logo - Only visible on small screens, moved down for sign up */}
+        <div className="flex lg:hidden justify-center mb-6 mt-4">
           <div className="relative w-16 h-16 flex items-center justify-center">
             <div className="relative w-full h-full rotate-45 transform translate-y-1 -translate-x-1">
               {/* Top Bar */}
@@ -29,23 +25,22 @@ const RightSection: React.FC<RightSectionProps> = ({ onNavigateToSignUp }) => {
         
         {/* Header */}
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Log in</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">Sign up</h2>
+          <p className="text-sm text-gray-600">Create your account to get started</p>
         </div>
 
         {/* Form */}
-        <LoginForm showPassword={showPassword} setShowPassword={setShowPassword} />
+        <SignUpForm showPassword={showPassword} setShowPassword={setShowPassword} />
 
-        {/* Removed social login section for a cleaner mobile view */}
-
-        {/* Bottom Sign Up */}
+        {/* Bottom Login Link */}
         <div className="text-center mt-2">
           <p className="text-sm text-gray-500">
-            Don't have an account?{' '}
+            Already have an account?{' '}
             <button 
-              onClick={onNavigateToSignUp}
+              onClick={onNavigateToLogin}
               className="text-[#2DD4BF] font-medium hover:text-[#26b8a5] transition-colors cursor-pointer"
             >
-              Sign up
+              Log in
             </button>
           </p>
         </div>
@@ -54,4 +49,4 @@ const RightSection: React.FC<RightSectionProps> = ({ onNavigateToSignUp }) => {
   );
 };
 
-export default RightSection;
+export default RightSectionSignUp;

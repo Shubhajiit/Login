@@ -1,12 +1,8 @@
 import React from 'react';
 import { LeftSection } from '../components';
-import RightSectionSignUp from '../components/RightSectionSignUp';
+import RightSectionSignUp from '../components/RightSectionSignUp.jsx';
 
-interface SignUpPageProps {
-  onNavigateToLogin?: () => void;
-}
-
-const SignUpPage: React.FC<SignUpPageProps> = ({ onNavigateToLogin }) => {
+const SignUpPage = ({ onNavigateToLogin }) => {
   return (
     <div className="h-screen w-full flex flex-col lg:flex-row overflow-hidden bg-white">
       <LeftSection />

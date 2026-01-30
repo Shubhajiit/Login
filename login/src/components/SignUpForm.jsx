@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
-import OTPVerification from './OTPVerification';
+import OTPVerification from './OTPVerification.jsx';
 
-interface SignUpFormProps {
-  showPassword: boolean;
-  setShowPassword: (show: boolean) => void;
-}
-
-const SignUpForm: React.FC<SignUpFormProps> = ({ showPassword, setShowPassword }) => {
+const SignUpForm = ({ showPassword, setShowPassword }) => {
   const [formData, setFormData] = useState({
     email: '',
     phoneNumber: '',
@@ -17,7 +12,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ showPassword, setShowPassword }
   const [showOTP, setShowOTP] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     const { id, type, checked, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -25,7 +20,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ showPassword, setShowPassword }
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
@@ -37,7 +32,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ showPassword, setShowPassword }
     }, 1500);
   };
 
-  const handleOTPVerify = (otp: string) => {
+  const handleOTPVerify = (otp) => {
     console.log('OTP verified:', otp);
     setShowOTP(false);
     // Handle successful verification (redirect, show success message, etc.)

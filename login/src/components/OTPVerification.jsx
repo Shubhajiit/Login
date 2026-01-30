@@ -1,17 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { X } from 'lucide-react';
 
-interface OTPVerificationProps {
-  isVisible: boolean;
-  onClose: () => void;
-  onVerify: (otp: string) => void;
-  email: string;
-}
-
-const OTPVerification: React.FC<OTPVerificationProps> = ({ isVisible, onClose, onVerify, email }) => {
-  const [otp, setOtp] = useState<string[]>(['', '', '', '', '', '']);
+const OTPVerification = ({ isVisible, onClose, onVerify, email }) => {
+  const [otp, setOtp] = useState(['', '', '', '', '', '']);
   const [isLoading, setIsLoading] = useState(false);
-  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+  const inputRefs = useRef([]);
 
   useEffect(() => {
     if (isVisible && inputRefs.current[0]) {
@@ -19,7 +12,7 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({ isVisible, onClose, o
     }
   }, [isVisible]);
 
-  const handleChange = (index: number, value: string) => {
+  const handleChange = (index, value) => {
     if (value.length <= 1 && /^\d*$/.test(value)) {
       const newOtp = [...otp];
       newOtp[index] = value;
@@ -32,7 +25,7 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({ isVisible, onClose, o
     }
   };
 
-  const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (index, e) => {
     if (e.key === 'Backspace' && !otp[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
     }
@@ -41,7 +34,7 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({ isVisible, onClose, o
     }
   };
 
-  const handlePaste = (e: React.ClipboardEvent) => {
+  const handlePaste = (e) => {
     e.preventDefault();
     const pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 6);
     const newOtp = [...otp];

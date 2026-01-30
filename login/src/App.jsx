@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
+import LoginPage from './pages/LoginPage.jsx';
+import SignUpPage from './pages/SignUpPage.jsx';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<'login' | 'signup'>('login');
+  const [currentPage, setCurrentPage] = useState('login');
 
   // Simple navigation function for demo purposes
   const navigateToSignUp = () => setCurrentPage('signup');
@@ -17,5 +17,3 @@ function App() {
 }
 
 export default App;
-
-

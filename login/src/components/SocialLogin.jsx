@@ -1,12 +1,6 @@
 import React from 'react';
 
-interface SocialButtonProps {
-  icon: React.ReactNode;
-  ariaLabel: string;
-  onClick?: () => void;
-}
-
-const SocialButton: React.FC<SocialButtonProps> = ({ icon, ariaLabel, onClick }) => (
+const SocialButton = ({ icon, ariaLabel, onClick }) => (
   <button
     onClick={onClick}
     aria-label={ariaLabel}
@@ -16,7 +10,7 @@ const SocialButton: React.FC<SocialButtonProps> = ({ icon, ariaLabel, onClick })
   </button>
 );
 
-const SocialLogin: React.FC = () => {
+const SocialLogin = () => {
   const handleGoogleLogin = () => console.log('Google login clicked');
   const handleAppleLogin = () => console.log('Apple login clicked');
   const handleFacebookLogin = () => console.log('Facebook login clicked');
