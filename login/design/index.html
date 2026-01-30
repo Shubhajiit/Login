@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintechdb Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .custom-shape { border-radius: 50px; }
+        /* Custom checkbox style */
+        .checkbox-wrapper input:checked + div {
+            background-color: #2dd4bf;
+            border-color: #2dd4bf;
+        }
+        .checkbox-wrapper input:checked + div svg {
+            display: block;
+        }
+    </style>
+</head>
+<body class="h-screen w-full flex flex-col lg:flex-row overflow-hidden bg-white">
+
+    <!-- Left Section: Decorative Background -->
+    <div class="relative w-full lg:w-1/2 h-64 lg:h-full bg-[#EAEBF3] overflow-hidden flex flex-col items-center justify-center shrink-0">
+        
+        <!-- Background Shapes -->
+        <!-- Top Pink Circle -->
+        <div class="absolute -top-20 left-1/4 w-80 h-80 bg-[#FFB6C1] rounded-full mix-blend-multiply opacity-100 z-10"></div>
+        
+        <!-- Top Right Dark Blue Circle -->
+        <div class="absolute -top-10 -right-20 w-96 h-96 bg-[#0B104A] rounded-full z-0"></div>
+
+        <!-- Bottom Left Teal Gradient Circle -->
+        <div class="absolute -bottom-32 -left-20 w-[500px] h-[500px] bg-gradient-to-tr from-[#006970] to-[#2DD4BF] rounded-full z-10"></div>
+
+        <!-- Bottom Right Small Elements -->
+        <div class="absolute bottom-0 right-20 w-16 h-16 bg-[#0891B2] rounded-full z-10 translate-y-1/2"></div>
+        <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-[#FFC3CB] rounded-full z-0"></div>
+
+        <!-- Logo Section -->
+        <div class="relative z-20 flex flex-col items-center gap-6">
+            <!-- Custom Logo Graphic -->
+            <div class="relative w-24 h-24 flex items-center justify-center">
+                <div class="relative w-full h-full rotate-45 transform translate-y-2 -translate-x-2">
+                    <!-- Top Bar -->
+                    <div class="absolute top-0 right-0 w-[55%] h-5 bg-[#0A0E2E] rounded-full"></div>
+                    <!-- Middle Bar -->
+                    <div class="absolute top-8 right-0 w-[85%] h-5 bg-[#0A0E2E] rounded-full"></div>
+                    <!-- Bottom Bar -->
+                    <div class="absolute top-16 right-0 w-[55%] h-5 bg-[#0A0E2E] rounded-full"></div>
+                </div>
+                <!-- Teal Dot -->
+                <div class="absolute top-[42%] right-[-10px] w-5 h-5 bg-[#2DD4BF] rounded-full"></div>
+            </div>
+            
+            <!-- Logo Text -->
+            <h1 class="text-[#0A0E2E] text-3xl font-bold tracking-wide">fintechdb</h1>
+        </div>
+    </div>
+
+    <!-- Right Section: Login Form -->
+    <div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center p-8 lg:p-24 overflow-y-auto">
+        <div class="w-full max-w-sm flex flex-col gap-8">
+            
+            <!-- Header -->
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Log in</h2>
+            </div>
+
+            <!-- Form -->
+            <form class="flex flex-col gap-5" onsubmit="event.preventDefault()">
+                
+                <!-- Email Input -->
+                <div class="flex flex-col gap-2">
+                    <label for="email" class="text-sm font-medium text-gray-700">Email address</label>
+                    <input type="email" id="email" placeholder="name@email.com" 
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#2DD4BF] focus:border-transparent transition-all placeholder-gray-400 text-gray-800">
+                </div>
+
+                <!-- Password Input -->
+                <div class="flex flex-col gap-2">
+                    <div class="flex justify-between items-center">
+                        <label for="password" class="text-sm font-medium text-gray-700">Password</label>
+                    </div>
+                    <div class="relative">
+                        <input type="password" id="password" placeholder="••••••••" 
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#2DD4BF] focus:border-transparent transition-all placeholder-gray-400 text-gray-800 pr-10">
+                        <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                            <i data-lucide="eye" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Remember & Forgot Password -->
+                <div class="flex items-center justify-between mt-1">
+                    <label class="flex items-center cursor-pointer checkbox-wrapper group">
+                        <div class="relative">
+                            <input type="checkbox" class="peer sr-only">
+                            <div class="w-5 h-5 border-2 border-gray-300 rounded bg-white peer-checked:bg-[#2DD4BF] peer-checked:border-[#2DD4BF] transition-all flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </div>
+                        <span class="ml-2 text-sm text-gray-600 group-hover:text-gray-800 transition-colors">Keep me logged in</span>
+                    </label>
+                    <a href="#" class="text-sm font-medium text-[#2DD4BF] hover:text-[#26b8a5] transition-colors">Forgot password?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="w-full bg-[#2DD4BF] hover:bg-[#26b8a5] text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm hover:shadow-md mt-2">
+                    Log in
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="relative flex py-2 items-center">
+                <div class="flex-grow border-t border-gray-200"></div>
+                <span class="flex-shrink-0 mx-4 text-gray-400 text-sm">or</span>
+                <div class="flex-grow border-t border-gray-200"></div>
+            </div>
+
+            <!-- Social Login -->
+            <div class="flex justify-center gap-6">
+                <!-- Google -->
+                <button class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                </button>
+                
+                <!-- Apple -->
+                <button class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74s2.57-.99 4.35-.82c1.81.18 2.61.56 3.33 1.3-3.12 1.88-2.63 6.64.6 7.93-.5 1.49-1.15 2.86-3.36 3.82zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                </button>
+                
+                <!-- Facebook -->
+                <button class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm">
+                    <svg class="w-6 h-6 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Bottom Sign Up -->
+            <div class="text-center mt-2">
+                <p class="text-sm text-gray-500">
+                    Don't have an account? 
+                    <a href="#" class="text-[#2DD4BF] font-medium hover:text-[#26b8a5] transition-colors">Sign up</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
